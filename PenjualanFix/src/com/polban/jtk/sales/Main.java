@@ -1,5 +1,5 @@
-import com.polban.jtk.sales.Product;
-import com.polban.jtk.sales.Sales;
+package com.polban.jtk.sales;
+
 import java.util.Scanner;
 
 public class Main {
