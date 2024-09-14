@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="PenjualanFix:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/PenjualanFix_jar</output-path>
+    <root id="archive" name="PenjualanFix.jar">
+      <element id="module-output" name="PenjualanFix" />
+    </root>
+  </artifact>
+</component>
