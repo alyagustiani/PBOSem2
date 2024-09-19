@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="saleslibrary2">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/PenjualanFix/out/production/PenjualanFix/com/polban/jtk/sales/com/polban/jtk/sales/saleslibrary.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
