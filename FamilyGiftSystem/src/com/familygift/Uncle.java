@@ -2,19 +2,15 @@ package com.familygift;
 
 import java.util.*;
 
-public class Uncle implements Comparable<Uncle> {
-    private final String name;
-    private final Set<Present> presents; // Menggunakan Set untuk menghindari duplikasi
+class Uncle extends Person implements Comparable<Uncle> {
+    private final Set<Present> presents;
 
     Uncle(String name) {
-        this.name = name;
+        super(name);
         this.presents = new HashSet<>();
     }
 
-    public String getName() { return name; }
-
     public boolean addPresent(Niece recipient, String description) {
-        // Validasi hadiah duplikat
         boolean isDuplicateGift = presents.stream()
                 .anyMatch(p -> p.getDescription().equalsIgnoreCase(description));
 
@@ -33,7 +29,7 @@ public class Uncle implements Comparable<Uncle> {
     }
 
     public void listPresents() {
-        System.out.println("\nDaftar hadiah dari " + name + ":");
+        System.out.println("\nDaftar hadiah dari " + getName() + ":");
         if (presents.isEmpty()) {
             System.out.println("Belum memberikan hadiah.");
         } else {
@@ -46,7 +42,7 @@ public class Uncle implements Comparable<Uncle> {
 
     @Override
     public int compareTo(Uncle other) {
-        return this.name.compareToIgnoreCase(other.name);
+        return this.getName().compareToIgnoreCase(other.getName());
     }
 
     @Override
@@ -54,11 +50,11 @@ public class Uncle implements Comparable<Uncle> {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Uncle uncle = (Uncle) o;
-        return Objects.equals(name, uncle.name);
+        return Objects.equals(getName(), uncle.getName());
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(name);
+        return Objects.hash(getName());
     }
 }

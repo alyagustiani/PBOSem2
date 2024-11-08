@@ -3,7 +3,7 @@ package com.familygift;
 import java.util.*;
 
 public class Family {
-    private final Map<String, Uncle> uncles; // Menggunakan Map untuk pencarian efisien
+    private final Map<String, Uncle> uncles;
     private final Map<String, Niece> nieces;
 
     public Family() {
@@ -11,23 +11,23 @@ public class Family {
         nieces = new HashMap<>();
     }
 
-    public boolean addNiece(String name, int day, int month) {
-        if (findNiece(name) != null) {
-            System.out.println("Peringatan: Keponakan dengan nama " + name + " sudah ada!");
+    public boolean addNiece(Niece niece) {
+        if (findNiece(niece.getName()) != null) {
+            System.out.println("Peringatan: Keponakan dengan nama " + niece.getName() + " sudah ada!");
             return false;
         }
-        nieces.put(name.toLowerCase(), new Niece(name, day, month));
-        System.out.println("Berhasil menambahkan keponakan: " + name);
+        nieces.put(niece.getName().toLowerCase(), niece);
+        System.out.println("Berhasil menambahkan keponakan: " + niece.getName());
         return true;
     }
 
-    public boolean addUncle(String name) {
-        if (findUncle(name) != null) {
-            System.out.println("Peringatan: Paman dengan nama " + name + " sudah ada!");
+    public boolean addUncle(Uncle uncle) {
+        if (findUncle(uncle.getName()) != null) {
+            System.out.println("Peringatan: Paman dengan nama " + uncle.getName() + " sudah ada!");
             return false;
         }
-        uncles.put(name.toLowerCase(), new Uncle(name));
-        System.out.println("Berhasil menambahkan paman: " + name);
+        uncles.put(uncle.getName().toLowerCase(), uncle);
+        System.out.println("Berhasil menambahkan paman: " + uncle.getName());
         return true;
     }
 
@@ -64,14 +64,14 @@ public class Family {
     // Method untuk testing
     public void generateSampleData() {
         // Menambahkan paman
-        addUncle("Albert");
-        addUncle("Bill");
-        addUncle("Charlie");
+        addUncle(new Uncle("Albert"));
+        addUncle(new Uncle("Bill"));
+        addUncle(new Uncle("Charlie"));
 
         // Menambahkan keponakan
-        addNiece("Amy", 15, 3);
-        addNiece("Beatrice", 22, 6);
-        addNiece("Claire", 10, 9);
+        addNiece(new Niece("Amy", 15, 3));
+        addNiece(new Niece("Beatrice", 22, 6));
+        addNiece(new Niece("Claire", 10, 9));
 
         // Menambahkan beberapa hadiah
         Uncle albert = findUncle("Albert");

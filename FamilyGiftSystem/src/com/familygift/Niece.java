@@ -2,21 +2,24 @@ package com.familygift;
 
 import java.util.*;
 
-public class Niece implements Comparable<Niece> {
-    private final String name;
+class Niece extends Person implements Comparable<Niece>, Birthday {
     private final int day;
     private final int month;
-    private final Set<Present> presents; // Menggunakan Set untuk menghindari duplikasi
+    private final Set<Present> presents;
 
     Niece(String name, int day, int month) {
-        this.name = name;
+        super(name);
         this.day = day;
         this.month = month;
         this.presents = new HashSet<>();
     }
 
-    public String getName() {
-        return name;
+    public int getDay() {
+        return day;
+    }
+
+    public int getMonth() {
+        return month;
     }
 
     public boolean addPresent(Present present) {
@@ -34,7 +37,7 @@ public class Niece implements Comparable<Niece> {
     }
 
     public void listPresents() {
-        System.out.println("\nDaftar hadiah untuk " + name + ":");
+        System.out.println("\nDaftar hadiah untuk " + getName() + ":");
         if (presents.isEmpty()) {
             System.out.println("Belum ada hadiah.");
         } else {
@@ -57,11 +60,11 @@ public class Niece implements Comparable<Niece> {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Niece niece = (Niece) o;
-        return Objects.equals(name, niece.name);
+        return Objects.equals(getName(), niece.getName());
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(name);
+        return Objects.hash(getName());
     }
 }

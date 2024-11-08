@@ -2,8 +2,7 @@ package com.familygift;
 
 import java.util.*;
 
-// Class Present - Menyimpan informasi hadiah
-public class Present {
+class Present {
     private final Uncle giver;
     private final Niece recipient;
     private final String description;
